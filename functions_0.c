@@ -65,7 +65,7 @@ int flags, int width, int precision, int size)
 		else
 		{
 			for (j = (width - l); j > 0; j--)
-				 write(1, " ", 1);
+				write(1, " ", 1);
 			return (width);
 		}
 	}
