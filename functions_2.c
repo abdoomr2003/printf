@@ -35,13 +35,13 @@ int flags, int width, int precision, int size)
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (flags & F_PLUS)
-		extra_c = '+', l++;
+		extra_ch = '+', l++;
 	else if (flags & F_SPACE)
-		extra_c = ' ', l++;
+		extra_ch = ' ', l++;
 	ind++;
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (write_pointer(buffer, ind, l,
-				width, flags, padd, extra_c, padd_start));
+				width, flags, padd, extra_ch, padd_start));
 }
 /************************* PRINT NON PRINTABLE *************************/
 /**
@@ -162,5 +162,6 @@ int flags, int width, int precision, int size)
 				count++;
 			}
 		}
-		return (count);
 	}
+	return (count);
+}

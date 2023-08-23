@@ -30,19 +30,19 @@ int _printf(const char *format, ...)
 		{
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &j);
-			width = get_width(format, &j, list);
-			precision = get_precision(format, &j, list);
+			width = get_width(format, &j, ls);
+			precision = get_precision(format, &j, ls);
 			size = get_size(format, &j);
 			++j;
-			printed = handle_print(format, &j, list, buff,
+			print = handle_print(format, &j, ls, buffer,
 					flags, width, precision, size);
-			if (printed == -1)
+			if (print == -1)
 				return (-1);
-			print_chars += printed;
+			print_chars += print;
 		}
 	}
 	print_buffer(buffer, &buff_ind);
-	va_end(list);
+	va_end(ls);
 	return (print_chars);
 }
 
